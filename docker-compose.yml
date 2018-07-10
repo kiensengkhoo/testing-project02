@@ -1,8 +1,0 @@
-version: '3'
-
-services:
-  deploy_project:
-    image: deployproject
-    build:
-      context: .
-      dockerfile: deploy_project\Dockerfile
