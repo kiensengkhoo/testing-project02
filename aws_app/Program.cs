@@ -31,9 +31,14 @@ namespace aws_app
                         Console.WriteLine("Received data lenght {0} \n ", dataLength.ToString());
                         Console.WriteLine("Get Input Context:");
                         Console.WriteLine(Encoding.ASCII.GetString(myBufferBytes, 0, dataLength) + "\n");
-                        Console.WriteLine("Input [Any] return data to client :");
-                        Console.ReadLine();
-                        mySocket.Send(myBufferBytes, myBufferBytes.Length, 0);
+                        Console.WriteLine("Input Message:");
+                        string text = Console.ReadLine();
+                        if(text == "close")
+                        {
+                            mySocket.Close();
+                        }
+                        byte[] myBytes = Encoding.ASCII.GetBytes(text);
+                        mySocket.Send(myBytes, myBytes.Length, 0);
                     }
                 }
                 catch (Exception e)
