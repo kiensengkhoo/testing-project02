@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "app.ServerMultiConnection", "app.ServerMultiConnection\app.ServerMultiConnection.csproj", "{FA913972-18DD-49DE-BA86-D358E587A00D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aws_app", "aws_app\aws_app.csproj", "{311A5FB0-B1AD-4EBC-AC94-C2C3B997EA36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FA913972-18DD-49DE-BA86-D358E587A00D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FA913972-18DD-49DE-BA86-D358E587A00D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FA913972-18DD-49DE-BA86-D358E587A00D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FA913972-18DD-49DE-BA86-D358E587A00D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{311A5FB0-B1AD-4EBC-AC94-C2C3B997EA36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{311A5FB0-B1AD-4EBC-AC94-C2C3B997EA36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{311A5FB0-B1AD-4EBC-AC94-C2C3B997EA36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{311A5FB0-B1AD-4EBC-AC94-C2C3B997EA36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3E82B476-D700-4F18-83C5-14EABA944CD5}
+		SolutionGuid = {A2BB3013-7E30-4012-B85F-4304185663BC}
 	EndGlobalSection
 EndGlobal

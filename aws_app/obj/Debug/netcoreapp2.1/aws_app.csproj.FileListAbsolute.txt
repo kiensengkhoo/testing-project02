@@ -1,0 +1,11 @@
+c:\users\ieuser\source\repos\aws_app\aws_app\bin\Debug\netcoreapp2.1\aws_app.deps.json
+c:\users\ieuser\source\repos\aws_app\aws_app\bin\Debug\netcoreapp2.1\aws_app.runtimeconfig.json
+c:\users\ieuser\source\repos\aws_app\aws_app\bin\Debug\netcoreapp2.1\aws_app.runtimeconfig.dev.json
+c:\users\ieuser\source\repos\aws_app\aws_app\bin\Debug\netcoreapp2.1\aws_app.dll
+c:\users\ieuser\source\repos\aws_app\aws_app\bin\Debug\netcoreapp2.1\aws_app.pdb
+c:\users\ieuser\source\repos\aws_app\aws_app\obj\Debug\netcoreapp2.1\aws_app.csprojAssemblyReference.cache
+c:\users\ieuser\source\repos\aws_app\aws_app\obj\Debug\netcoreapp2.1\aws_app.csproj.CoreCompileInputs.cache
+c:\users\ieuser\source\repos\aws_app\aws_app\obj\Debug\netcoreapp2.1\aws_app.AssemblyInfoInputs.cache
+c:\users\ieuser\source\repos\aws_app\aws_app\obj\Debug\netcoreapp2.1\aws_app.AssemblyInfo.cs
+c:\users\ieuser\source\repos\aws_app\aws_app\obj\Debug\netcoreapp2.1\aws_app.dll
+c:\users\ieuser\source\repos\aws_app\aws_app\obj\Debug\netcoreapp2.1\aws_app.pdb
