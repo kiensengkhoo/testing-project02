@@ -687,11 +687,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\users\\ieuser\\source\\repos\\aws_app\\aws_app\\aws_app.csproj",
-      "projectName": "aws_app",
-      "projectPath": "c:\\users\\ieuser\\source\\repos\\aws_app\\aws_app\\aws_app.csproj",
+      "projectUniqueName": "C:\\Users\\IEUser\\source\\repos\\app.ServerMultiConnection\\app.ServerMultiConnection\\app.ServerMultiConnection.csproj",
+      "projectName": "app.ServerMultiConnection",
+      "projectPath": "C:\\Users\\IEUser\\source\\repos\\app.ServerMultiConnection\\app.ServerMultiConnection\\app.ServerMultiConnection.csproj",
       "packagesPath": "C:\\Users\\IEUser\\.nuget\\packages\\",
-      "outputPath": "c:\\users\\ieuser\\source\\repos\\aws_app\\aws_app\\obj\\",
+      "outputPath": "C:\\Users\\IEUser\\source\\repos\\app.ServerMultiConnection\\app.ServerMultiConnection\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
