@@ -24,6 +24,7 @@ namespace TCPServer.Server
                 while (true)
                 {
                     Socket mySocket = myTcpListener.AcceptSocket();
+                    Console.WriteLine("AcceptSocket Success");
                     ServerService service = new ServerService(mySocket, fileService);
                     Thread newthread = new Thread(new ThreadStart(service.GetService));
                     newthread.Start();
@@ -42,7 +43,8 @@ namespace TCPServer.Server
                             myTcpClient.Connect(Peers[i], 8080);
                             Console.WriteLine("[" + Peers[i] + "]Connect Success...\n");
                             connected = true;
-                            byte[] myBytes = Encoding.ASCII.GetBytes("This is Testing");
+                            string input = Console.ReadLine();
+                            byte[] myBytes = Encoding.ASCII.GetBytes(input);
                             NetworkStream myStream = myTcpClient.GetStream();
                             myStream.Write(myBytes, 0, myBytes.Length);
                             //ClientService clientService = new ClientService(myTcpClient);
