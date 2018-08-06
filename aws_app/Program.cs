@@ -1,78 +1,64 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using TCPServer.Server.Service;
 
-namespace aws_app
+namespace TCPServer.Server
 {
     class Program
     {
+        private static readonly string[] Peers = { "18.212.199.32", "18.212.57.215" };
+
         static void Main(string[] args)
         {
-            Console.WriteLine("IP Address:" + IPAddress.Any);
+            FileService fileService = new FileService();
 
             TcpListener myTcpListener = new TcpListener(IPAddress.Any, 8080);
             myTcpListener.Start();
-            Console.WriteLine("Port 8080 waiting client connect...");
-            while (true)
-            {
-                Socket mySocket = myTcpListener.AcceptSocket();
-                Service service = new Service(mySocket);
-                Thread newthread = new Thread(new ThreadStart(service.GetService));
-                newthread.Start();
-            }
-        }
 
-        public class Service
-        {
-            public Socket mySocket;
-
-            public Service(Socket mySocket)
-            {
-                this.mySocket = mySocket;
-            }
-
-            public void GetService()
-            {
-                if (mySocket.Connected)
+            Thread thread01 = new Thread(()=> {
+                Console.WriteLine("TCP Listener is starting...");
+                while (true)
                 {
-                    while (true)
+                    Socket mySocket = myTcpListener.AcceptSocket();
+                    ServerService service = new ServerService(mySocket, fileService);
+                    Thread newthread = new Thread(new ThreadStart(service.GetService));
+                    newthread.Start();
+                }
+            });
+
+            Thread thread02 = new Thread(()=> {
+                for (int i = 0; i < Peers.Length; i++)
+                {
+                    bool connected = false;
+                    while (connected == false)
                     {
+                        TcpClient myTcpClient = new TcpClient();
                         try
                         {
-                            int dataLength;
-                            Console.WriteLine("Connect Success...");
-                            byte[] myBufferBytes = new byte[1000];
-                            dataLength = mySocket.Receive(myBufferBytes);
-
-                            Console.WriteLine("Received data lenght {0} \n ", dataLength.ToString());
-                            Console.WriteLine("Get Input Context:");
-                            Console.WriteLine(Encoding.ASCII.GetString(myBufferBytes, 0, dataLength) + "\n");
-                            Console.WriteLine("Input Message:");
-                            //string text = Console.ReadLine();
-                            //if (text == "close")
-                            //{
-                            //    mySocket.Close();
-                            //}
-                            //byte[] myBytes = Encoding.ASCII.GetBytes(text);
-                            //mySocket.Send(myBytes, myBytes.Length, 0);
-                            mySocket.Send(myBufferBytes, myBufferBytes.Length,0);
+                            myTcpClient.Connect(Peers[i], 8080);
+                            Console.WriteLine("[" + Peers[i] + "]Connect Success...\n");
+                            connected = true;
+                            byte[] myBytes = Encoding.ASCII.GetBytes("This is Testing");
+                            NetworkStream myStream = myTcpClient.GetStream();
+                            myStream.Write(myBytes, 0, myBytes.Length);
+                            //ClientService clientService = new ClientService(myTcpClient);
                         }
-                        catch (Exception e)
+                        catch
                         {
-                            Console.WriteLine(e.Message);
-                            mySocket.Close();
-                            break;
+                            Console.WriteLine("Server {0} port {1} cant connect...", Peers[i], 8080);
+                            connected = false;
                         }
+                        Thread.Sleep(3000);
                     }
                 }
-                else
-                {
-                    Console.WriteLine("Connection disconnect...");
-                    mySocket.Close();
-                }
-            }
+            });
+            thread01.Start();
+            thread02.Start();
         }
+        
     }
 }

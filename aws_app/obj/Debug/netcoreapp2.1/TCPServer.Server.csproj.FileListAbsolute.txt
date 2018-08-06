@@ -1,0 +1,11 @@
+C:\Users\IEUser\source\repos\aws_app\aws_app\bin\Debug\netcoreapp2.1\TCPServer.Server.deps.json
+C:\Users\IEUser\source\repos\aws_app\aws_app\bin\Debug\netcoreapp2.1\TCPServer.Server.runtimeconfig.json
+C:\Users\IEUser\source\repos\aws_app\aws_app\bin\Debug\netcoreapp2.1\TCPServer.Server.runtimeconfig.dev.json
+C:\Users\IEUser\source\repos\aws_app\aws_app\bin\Debug\netcoreapp2.1\TCPServer.Server.dll
+C:\Users\IEUser\source\repos\aws_app\aws_app\bin\Debug\netcoreapp2.1\TCPServer.Server.pdb
+C:\Users\IEUser\source\repos\aws_app\aws_app\obj\Debug\netcoreapp2.1\TCPServer.Server.csprojAssemblyReference.cache
+C:\Users\IEUser\source\repos\aws_app\aws_app\obj\Debug\netcoreapp2.1\TCPServer.Server.csproj.CoreCompileInputs.cache
+C:\Users\IEUser\source\repos\aws_app\aws_app\obj\Debug\netcoreapp2.1\TCPServer.Server.AssemblyInfoInputs.cache
+C:\Users\IEUser\source\repos\aws_app\aws_app\obj\Debug\netcoreapp2.1\TCPServer.Server.AssemblyInfo.cs
+C:\Users\IEUser\source\repos\aws_app\aws_app\obj\Debug\netcoreapp2.1\TCPServer.Server.dll
+C:\Users\IEUser\source\repos\aws_app\aws_app\obj\Debug\netcoreapp2.1\TCPServer.Server.pdb
