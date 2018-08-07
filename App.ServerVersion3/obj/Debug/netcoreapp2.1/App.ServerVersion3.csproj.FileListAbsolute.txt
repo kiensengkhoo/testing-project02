@@ -1,0 +1,11 @@
+c:\users\ieuser\source\repos\App.ServerVersion3\App.ServerVersion3\bin\Debug\netcoreapp2.1\App.ServerVersion3.deps.json
+c:\users\ieuser\source\repos\App.ServerVersion3\App.ServerVersion3\bin\Debug\netcoreapp2.1\App.ServerVersion3.runtimeconfig.json
+c:\users\ieuser\source\repos\App.ServerVersion3\App.ServerVersion3\bin\Debug\netcoreapp2.1\App.ServerVersion3.runtimeconfig.dev.json
+c:\users\ieuser\source\repos\App.ServerVersion3\App.ServerVersion3\bin\Debug\netcoreapp2.1\App.ServerVersion3.dll
+c:\users\ieuser\source\repos\App.ServerVersion3\App.ServerVersion3\bin\Debug\netcoreapp2.1\App.ServerVersion3.pdb
+c:\users\ieuser\source\repos\App.ServerVersion3\App.ServerVersion3\obj\Debug\netcoreapp2.1\App.ServerVersion3.csprojAssemblyReference.cache
+c:\users\ieuser\source\repos\App.ServerVersion3\App.ServerVersion3\obj\Debug\netcoreapp2.1\App.ServerVersion3.csproj.CoreCompileInputs.cache
+c:\users\ieuser\source\repos\App.ServerVersion3\App.ServerVersion3\obj\Debug\netcoreapp2.1\App.ServerVersion3.AssemblyInfoInputs.cache
+c:\users\ieuser\source\repos\App.ServerVersion3\App.ServerVersion3\obj\Debug\netcoreapp2.1\App.ServerVersion3.AssemblyInfo.cs
+c:\users\ieuser\source\repos\App.ServerVersion3\App.ServerVersion3\obj\Debug\netcoreapp2.1\App.ServerVersion3.dll
+c:\users\ieuser\source\repos\App.ServerVersion3\App.ServerVersion3\obj\Debug\netcoreapp2.1\App.ServerVersion3.pdb
