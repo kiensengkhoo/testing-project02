@@ -28,6 +28,7 @@ namespace App.ServerVersion3.Services
         }
         
         public static int connections = 0;
+
         public async void AcceptPeersAsync()
         {
             while (!cancellationTokenSource.IsCancellationRequested)
@@ -35,15 +36,15 @@ namespace App.ServerVersion3.Services
                 Socket socket;
                 try
                 {
-                    Console.WriteLine("Waiting client connect...");
+                    Console.WriteLine("[Server] Waiting client connect...");
                     socket = await listener.AcceptSocketAsync();
                     if (socket != null)
                     {
                         connections++;
                     }
-                    Console.WriteLine("New Client Connection:{0} connected.", connections);
+                    Console.WriteLine("[Server] New Client Connection:{0} connected.", connections);
 
-                    byte[] myBytes = Encoding.ASCII.GetBytes("Server Message:Success!");
+                    byte[] myBytes = Encoding.ASCII.GetBytes("[Server]Success to connect...");
                     socket.Send(myBytes);
                 }
                 catch (ObjectDisposedException)

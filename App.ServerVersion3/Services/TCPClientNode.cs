@@ -13,28 +13,46 @@ namespace App.ServerVersion3.Services
     {
         private Socket socket;
         private NetworkStream stream;
-        private readonly string[] Peers = { "34.227.178.142", "34.227.149.106" };
 
         public TCPClientNode()
         {
-            this.socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream,ProtocolType.Tcp);
+            socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream,ProtocolType.Tcp);
         }
 
-        public async Task<bool> ConnectPeers(string[] Peers)
+        public async void ConnectPeersAsync(string address)
         {
-            return true;
+            Console.WriteLine("[Client] Start to connect [" + address + "]");
+            bool check = await ConnectAsync(address);
+
+            while (!check)
+            {
+                Console.WriteLine("[Client] Try again to connect [" + address + "]");
+                check = await ConnectAsync(address);
+                if (!check)
+                {
+                    Thread.Sleep(5000);
+                    Console.WriteLine("[Try again connect after 5sec.]");
+                }
+            }
         }
 
         public async Task<bool> ConnectAsync(string address)
         {
+            CancellationTokenSource source = new CancellationTokenSource(30000);
             try
             {
                 await socket.ConnectAsync(address, 8080);
                 stream = new NetworkStream(socket);
+                Console.WriteLine("[" + DateTime.Now.ToString() + "] " + address + " Success to connect server.");
+                string strTest = "[" + DateTime.Now.ToString() + "] " + address + " Success to connect server.";
+                byte[] myBytes = Encoding.ASCII.GetBytes(strTest);
+                await stream.WriteAsync(myBytes, 0, myBytes.Length, source.Token);
             }
-            catch (SocketException)
+            catch (SocketException ex)
             {
+                source.Dispose();
                 socket.Dispose();
+                Console.WriteLine("[Client] Error Socket :" + ex.Message);
                 return false;
             }
             return true;
@@ -64,9 +82,17 @@ namespace App.ServerVersion3.Services
 
         public string ReceivedMessage(int bufferSize)
         {
-            byte[] myBufferBytes = new byte[bufferSize];
-            stream.Read(myBufferBytes, 0, bufferSize);
-            string result = Encoding.ASCII.GetString(myBufferBytes, 0, bufferSize).Replace(" ", "").Replace("\0", "");
+            string result;
+            try
+            {
+                byte[] myBufferBytes = new byte[bufferSize];
+                stream.Read(myBufferBytes, 0, bufferSize);
+                result = Encoding.ASCII.GetString(myBufferBytes, 0, bufferSize).Replace(" ", "").Replace("\0", "");
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
             return result;
         }
 
