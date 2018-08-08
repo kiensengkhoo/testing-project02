@@ -13,7 +13,7 @@ namespace App.ServerVersion3
         static void Main(string[] args)
         {
 
-            string[] Peers = { "34.227.178.142", "34.227.149.106" };
+            string[] Peers = { "18.212.41.155", "54.225.33.58" };
             foreach(var item in Peers)
             {
                 Task.Run(() =>

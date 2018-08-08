@@ -33,6 +33,10 @@ namespace App.ServerVersion3.Services
                     Thread.Sleep(5000);
                     Console.WriteLine("[Try again connect after 5sec.]");
                 }
+                else
+                {
+                    Console.WriteLine("[" + DateTime.Now.ToString() + "] " + address + " Success to connect server.");
+                }
             }
         }
 
@@ -43,7 +47,6 @@ namespace App.ServerVersion3.Services
             {
                 await socket.ConnectAsync(address, 8080);
                 stream = new NetworkStream(socket);
-                Console.WriteLine("[" + DateTime.Now.ToString() + "] " + address + " Success to connect server.");
                 string strTest = "[" + DateTime.Now.ToString() + "] " + address + " Success to connect server.";
                 byte[] myBytes = Encoding.ASCII.GetBytes(strTest);
                 await stream.WriteAsync(myBytes, 0, myBytes.Length, source.Token);
