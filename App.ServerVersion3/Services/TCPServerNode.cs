@@ -31,12 +31,12 @@ namespace App.ServerVersion3.Services
 
         public async void AcceptPeersAsync()
         {
+            Console.WriteLine("[Server] Waiting client connect...");
             while (!cancellationTokenSource.IsCancellationRequested)
             {
                 Socket socket;
                 try
                 {
-                    Console.WriteLine("[Server] Waiting client connect...");
                     socket = await listener.AcceptSocketAsync();
                     if (socket != null)
                     {
@@ -46,6 +46,10 @@ namespace App.ServerVersion3.Services
 
                     byte[] myBytes = Encoding.ASCII.GetBytes("[Server]Success to connect...");
                     socket.Send(myBytes);
+
+                    TCPRemote remote = new TCPRemote(socket);
+                    Thread thread = new Thread(remote.ReceiveMessage);
+                    thread.Start();
                 }
                 catch (ObjectDisposedException)
                 {

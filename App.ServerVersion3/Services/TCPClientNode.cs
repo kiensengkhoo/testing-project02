@@ -24,20 +24,17 @@ namespace App.ServerVersion3.Services
             Console.WriteLine("[Client] Start to connect [" + address + "]");
             bool check = await ConnectAsync(address);
 
-            while (!check)
+            while (check == false)
             {
                 Console.WriteLine("[Client] Try again to connect [" + address + "]");
                 check = await ConnectAsync(address);
-                if (!check)
+                if (check == false)
                 {
                     Thread.Sleep(5000);
                     Console.WriteLine("[Try again connect after 5sec.]");
                 }
-                else
-                {
-                    Console.WriteLine("[" + DateTime.Now.ToString() + "] " + address + " Success to connect server.");
-                }
             }
+            Console.WriteLine("[" + DateTime.Now.ToString() + "] Done Connect.");
         }
 
         public async Task<bool> ConnectAsync(string address)
@@ -54,7 +51,6 @@ namespace App.ServerVersion3.Services
             catch (SocketException ex)
             {
                 source.Dispose();
-                socket.Dispose();
                 Console.WriteLine("[Client] Error Socket :" + ex.Message);
                 return false;
             }
@@ -71,8 +67,7 @@ namespace App.ServerVersion3.Services
                 await stream.WriteAsync(myBytes, 0, myBytes.Length, source.Token);
                 return true;
             }
-            catch (ObjectDisposedException) { }
-            catch (Exception ex) when (ex is IOException || ex is OperationCanceledException)
+            catch (Exception ex)
             {
                 Console.WriteLine("SendMessage Error:" + ex.Message);
             }
