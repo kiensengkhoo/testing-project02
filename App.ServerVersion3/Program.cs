@@ -14,7 +14,7 @@ namespace App.ServerVersion3
         {
             TCPServerNode server = new TCPServerNode();
             server.AcceptPeersAsync();
-            Console.WriteLine("Update code v1");
+            Console.WriteLine("Update code v2");
             string[] Peers = { "18.212.41.155", "54.225.33.58" };
             foreach (var item in Peers)
             {
